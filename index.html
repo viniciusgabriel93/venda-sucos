@@ -1,170 +1,116 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pedido Rápido</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --neon-green: #A8FF00;
-      --neon-green-hover: #cfff4f;
-      --bg-dark: #0f0f0f;
-    }
     body {
       background-image: url('fundo.png');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
       color: white;
-    }
-    .card {
-      border-radius: 1rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background-color: #1a1a1a;
-      border: 1px solid #333;
-    }
-    .card label {
-      display: block;
-      color: white;
-      font-weight: 500;
+      font-family: sans-serif;
     }
     select, input, textarea {
-      background-color: #ffffff !important;
-      color: #000000 !important;
-      font-weight: bold !important;
-      border: 1px solid #444;
-      border-radius: 0.5rem;
-      padding: 0.5rem;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 8px;
       width: 100%;
     }
-    .btn-neon {
-      background-color: var(--neon-green);
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 15px;
+      background-color: #A8FF00;
       color: black;
       font-weight: bold;
-    }
-    .btn-neon:hover {
-      background-color: var(--neon-green-hover);
+      text-align: center;
+      border-radius: 12px;
+      font-size: 1rem;
     }
   </style>
 </head>
-<body>
-  <header style="background:#1a1a1a; border-bottom:1px solid #333; padding:1rem;">
-    <h1 style="font-size:1.25rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; color:#A8FF00;">Escolha seus produtos e continue pelo WhatsApp</h1>
-  </header>
-  <main style="max-width:600px; margin:auto; padding:1rem;">
-    <form id="pedidoForm" class="space-y-4">
-      <div class="card">
-        <label>Produto 1</label>
-        <div style="display:flex; gap:0.5rem;">
-          <select id="produto1" class="flex-1"></select>
-          <select id="quantidade1" style="width:5rem;"><option value="">Qtd</option></select>
-        </div>
-      </div>
-      <div class="card">
-        <label>Produto 2</label>
-        <div style="display:flex; gap:0.5rem;">
-          <select id="produto2" class="flex-1"></select>
-          <select id="quantidade2" style="width:5rem;"><option value="">Qtd</option></select>
-        </div>
-      </div>
-      <div class="card">
-        <label>Produto 3</label>
-        <div style="display:flex; gap:0.5rem;">
-          <select id="produto3" class="flex-1"></select>
-          <select id="quantidade3" style="width:5rem;"><option value="">Qtd</option></select>
-        </div>
-      </div>
-      <div class="card">
-        <label for="nome">Nome</label>
-        <input id="nome" type="text" required />
-        <label for="endereco" style="margin-top:0.5rem;">Bairro / Endereço</label>
-        <input id="endereco" type="text" />
-        <label for="telefone" style="margin-top:0.5rem;">Telefone</label>
-        <input id="telefone" type="tel" required />
-        <label for="obs" style="margin-top:0.5rem;">Observações</label>
-        <textarea id="obs" rows="3"></textarea>
-      </div>
-      <button type="button" onclick="atendimentoCompleto()" class="btn-neon" style="width:100%; padding:0.75rem; border-radius:1rem; font-size:1rem; text-transform:uppercase; box-shadow: 0 0 10px #a8ff00;">QUERO PEDIR MAIS DE 3 PRODUTOS OU PRECISO DE AJUDA NO PEDIDO</button>
-      <button type="button" onclick="enviarPedido()" class="btn-neon" style="width:100%; padding:0.75rem; border-radius:1rem; font-size:1rem; font-weight:800; text-transform:uppercase; box-shadow: 0 0 10px #a8ff00;">ENVIAR MEU PEDIDO VIA WHATSAPP</button>
-    </form>
-  </main>
+<body class="p-4 max-w-md mx-auto">
+  <h1 class="text-2xl font-bold text-center text-[#A8FF00] mb-6">ESCOLHA SEUS PRODUTOS E CONTINUE PELO WHATSAPP</h1>
+
+  <form id="pedidoForm" class="space-y-4">
+    <div>
+      <label>Produto 1</label>
+      <select id="produto1">
+        <option value="">Selecione...</option>
+        <option value="BRATVA - TREMBO ACETATO - R$170">BRATVA - TREMBO ACETATO - R$170</option>
+        <option value="BRATVA - Masteron - R$160">BRATVA - Masteron - R$160</option>
+        <option value="LANDER - CIPIONATO 10ml - R$180">LANDER - CIPIONATO 10ml - R$180</option>
+      </select>
+      <label>Quantidade</label>
+      <select id="quant1">
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+        <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+        <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    <div>
+      <label>Produto 2</label>
+      <select id="produto2">
+        <option value="">Selecione...</option>
+        <option value="BRATVA - TREMBO ACETATO - R$170">BRATVA - TREMBO ACETATO - R$170</option>
+        <option value="BRATVA - Masteron - R$160">BRATVA - Masteron - R$160</option>
+        <option value="LANDER - CIPIONATO 10ml - R$180">LANDER - CIPIONATO 10ml - R$180</option>
+      </select>
+      <label>Quantidade</label>
+      <select id="quant2">
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+        <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+        <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+    <div>
+      <label>Produto 3</label>
+      <select id="produto3">
+        <option value="">Selecione...</option>
+        <option value="BRATVA - TREMBO ACETATO - R$170">BRATVA - TREMBO ACETATO - R$170</option>
+        <option value="BRATVA - Masteron - R$160">BRATVA - Masteron - R$160</option>
+        <option value="LANDER - CIPIONATO 10ml - R$180">LANDER - CIPIONATO 10ml - R$180</option>
+      </select>
+      <label>Quantidade</label>
+      <select id="quant3">
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+        <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+        <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+
+    <button type="button" onclick="enviarPedido()" class="btn">ENVIAR MEU PEDIDO VIA WHATSAPP</button>
+    <button type="button" onclick="pedirAjuda()" class="btn">QUERO PEDIR MAIS DE 3 PRODUTOS OU PRECISO DE AJUDA NO PEDIDO</button>
+  </form>
+
   <script>
-    const produtos = [
-      "BRATVA - TREMBO ACETATO - R$170",
-      "BRATVA - ENANTATO DE TESTO - R$160",
-      "BRATVA - Masteron - R$160",
-      "BRATVA - DURA - R$160",
-      "BRATVA - BLEND - R$170",
-      "BRATVA - DECA - R$160",
-      "BRATVA - BOLDENONA - R$160",
-      "LANDER - DECA 10ml 200mg - R$180",
-      "LANDER - ENANTATO 10ml 250mg - R$180",
-      "LANDER - CIPIONATO 10ml - R$180",
-      "LANDER - BOLDENONA 10ml - R$180",
-      "LANDER - MASTERON 10ml - R$180",
-      "LANDER - DURATESTON 10ml - R$180",
-      "LANDER - TREMBO ACETATO 10ml - R$220",
-      "LANDER - TREMBO ENANTATO 10ml 250mg - R$200",
-      "LANDER - NPP 10ml - R$180",
-      "LANDER - Tri-Trembo 10ml - R$220"
-    ];
-
-    const selectHTML = '<option value="">Selecione...</option>' + produtos.map(p => `<option value="${p}">${p}</option>`).join('');
-    document.getElementById('produto1').innerHTML = selectHTML;
-    document.getElementById('produto2').innerHTML = selectHTML;
-    document.getElementById('produto3').innerHTML = selectHTML;
-
-    for (let i = 1; i <= 3; i++) {
-      const select = document.getElementById(`quantidade${i}`);
-      for (let j = 1; j <= 10; j++) {
-        select.innerHTML += `<option value="${j}">${j}</option>`;
-      }
-    }
-
-    function parseProduto(p) {
-      const match = p.match(/R\$(\d+)/);
-      return match ? parseFloat(match[1]) : 0;
-    }
-
-    function atendimentoCompleto() {
-      const nome = document.getElementById("nome").value;
-      const msg = `Olá, preciso de ajuda com meu pedido ou quero pedir mais de 3 produtos.%0A%0ANome: ${encodeURIComponent(nome)}`;
-      window.open(`https://wa.me/553192088162?text=${msg}`, "_blank");
-    }
-
     function enviarPedido() {
-      const itens = [];
-      let total = 0;
-
+      const produtos = [];
       for (let i = 1; i <= 3; i++) {
-        const produto = document.getElementById(`produto${i}`).value;
-        const qtd = parseInt(document.getElementById(`quantidade${i}`).value || 0);
-        if (produto && qtd > 0) {
-          const valorUnit = parseProduto(produto);
-          total += valorUnit * qtd;
-          itens.push(`- ${qtd}x ${produto}`);
+        const prod = document.getElementById('produto'+i).value;
+        const quant = document.getElementById('quant'+i).value;
+        if (prod) {
+          produtos.push(quant + "x " + prod);
         }
       }
+      if (produtos.length === 0) return alert("Selecione ao menos um produto");
 
-      if (!itens.length) {
-        alert("Selecione ao menos 1 produto com quantidade.");
-        return;
-      }
-
-      const nome = document.getElementById("nome").value;
-      const endereco = document.getElementById("endereco").value;
-      const telefone = document.getElementById("telefone").value;
-      const obs = document.getElementById("obs").value;
-
-      if (!nome || !telefone) {
-        alert("Preencha nome e telefone.");
-        return;
-      }
-
-      const mensagem = `Olá, quero fazer um pedido!%0A%0A🛒 Produtos:%0A${itens.join("%0A")}%0A%0A💰 Valor Total: R$${total.toFixed(2)}%0A%0A📍 Nome: ${encodeURIComponent(nome)}%0A📞 Telefone: ${encodeURIComponent(telefone)}%0A📍 Endereço: ${encodeURIComponent(endereco)}%0A📝 Observações: ${encodeURIComponent(obs)}%0A%0AObrigado!`;
-      window.open(`https://wa.me/553192088162?text=${mensagem}`, "_blank");
+      const msg = "Olá! Quero fazer o seguinte pedido:%0A" + produtos.map(p => "- " + p).join("%0A");
+      window.open("https://wa.me/553192088162?text=" + msg);
+    }
+    function pedirAjuda() {
+      const texto = "Olá! Preciso de ajuda ou quero pedir mais de 3 produtos.";
+      window.open("https://wa.me/553192088162?text=" + encodeURIComponent(texto));
     }
   </script>
 </body>
